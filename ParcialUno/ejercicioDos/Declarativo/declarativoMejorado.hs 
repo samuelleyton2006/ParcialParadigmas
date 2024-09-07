@@ -1,0 +1,14 @@
+import Data.List (sortBy)
+
+-- Lista de estudiantes con sus calificaciones
+students :: [(String, Int)]
+students = [("Sam", 45), ("Samu", 32), ("Samue", 88), ("Carl", 92), ("Carlo", 75)]
+
+-- Ordenar estudiantes por calificación y luego por nombre
+sortStudents :: [(String, Int)] -> [(String, Int)]
+sortStudents = sortBy (\(name1, grade1) (name2, grade2) ->
+    compare grade2 grade1 <> compare name1 name2)
+
+-- Imprimir la lista ordenada
+main :: IO ()
+main = print (sortStudents students)
